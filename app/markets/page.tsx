@@ -27,7 +27,14 @@ function useReveal() {
     }, []);
 }
 
-const marketDetails = {
+type MarketDetail = {
+    description: string;
+    avgNightly?: string;
+    avgWeekly?: string;
+    highlight: string;
+};
+
+const marketDetails: Record<string, MarketDetail> = {
     'Byron Bay': {
         description: 'Australia\'s iconic coastal destination, known for its stunning beaches, laid-back lifestyle, and premium property market.',
         avgNightly: '$950+',
@@ -138,7 +145,7 @@ export default function MarketsPage() {
 
                     <div className="grid md:grid-cols-2 gap-8">
                         {config.markets.primary.map((market) => {
-                            const details = marketDetails[market as keyof typeof marketDetails];
+                            const details = marketDetails[market];
                             return (
                                 <div key={market} className="bg-white p-8 border border-secondary-dune hover:border-primary-deep transition-colors reveal">
                                     <div className="flex items-start justify-between mb-4">
@@ -182,7 +189,7 @@ export default function MarketsPage() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {config.markets.secondary.map((market) => {
-                            const details = marketDetails[market as keyof typeof marketDetails];
+                            const details = marketDetails[market];
                             return (
                                 <div key={market} className="bg-white p-6 border border-secondary-dune reveal">
                                     <div className="flex items-center gap-2 mb-3">
