@@ -119,7 +119,6 @@ export default function TermsPage() {
                         </p>
                         <ul className="text-secondary-shell mb-6 space-y-1">
                             <li>Email: <a href={`mailto:${config.company.email.enquiries}`} className="text-primary-deep underline hover:text-accent-gold">{config.company.email.enquiries}</a></li>
-                            <li>Phone: <a href={`tel:${config.company.phone}`} className="text-primary-deep underline hover:text-accent-gold">{config.company.phone}</a></li>
                             <li>Address: {config.company.address.street}, {config.company.address.city} {config.company.address.state} {config.company.address.postcode}</li>
                         </ul>
                     </div>
